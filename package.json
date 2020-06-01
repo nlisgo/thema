@@ -11,11 +11,12 @@
   "scripts": {
     "bootstrap": "npm run build && npm run docs:gallery",
     "prepare": "npm run update",
-    "update": "npm run update:selectors && npm run update:examples && npm run update:themes && npm run update:extensions",
+    "update": "npm run update:selectors && npm run update:examples && npm run update:themes && npm run update:extensions && npm run update:css",
     "update:selectors": "ts-node --files src/scripts/selectors.ts",
     "update:examples": "ts-node --files src/scripts/examples.ts",
     "update:extensions": "ts-node --files src/scripts/extensions.ts update",
     "update:themes": "ts-node --files src/scripts/themes.ts update",
+    "update:css": "rm -rf node_modules/elife-patterns && git clone https://github.com/elifesciences/patterns-php.git -b master node_modules/elife-patterns && cd node_modules/elife-patterns && git checkout 52ced61d171619785e5aa15b98434ba20e2821ad",
     "create:extension": "ts-node --files src/scripts/extensions.ts create",
     "create:theme": "ts-node --files src/scripts/themes.ts create",
     "check:theme": "ts-node --files src/scripts/themes.ts check",
